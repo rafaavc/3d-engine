@@ -1,4 +1,4 @@
-#include "Observer.h"
+#include "model/Observer.h"
 
 
 Observer::Observer(Vector * position, UnitarianVector * direction) {

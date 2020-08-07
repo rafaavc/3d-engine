@@ -1,7 +1,7 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include "Engine.h"
+#include "controller/Engine.h"
 
 class View {
 private:

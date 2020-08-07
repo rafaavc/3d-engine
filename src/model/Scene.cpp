@@ -1,4 +1,4 @@
-#include "Scene.h"
+#include "model/Scene.h"
 
 Scene::~Scene() {
     for (Object * obj : sceneObjects) delete obj;

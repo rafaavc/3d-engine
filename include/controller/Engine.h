@@ -3,7 +3,7 @@
 
 #include "view/SDLAdapter.h"
 #include "model/Model.h"
-#include "Scene.h"
+#include "model/Scene.h"
 
 class Engine {
 private:

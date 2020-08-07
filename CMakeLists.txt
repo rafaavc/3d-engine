@@ -10,18 +10,18 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 add_executable(proj 
     src/main.cpp 
-    src/view/graphics/SDLAdapter.cpp 
+    src/view/adapters/SDLAdapter.cpp 
     src/view/View.cpp 
     src/controller/Controller.cpp 
+    src/controller/Engine.cpp 
     src/model/Model.cpp 
-    src/view/graphics/RGBAColor.cpp 
-    src/view/graphics/engine/Scene.cpp 
-    src/view/graphics/engine/Object.cpp 
-    src/view/graphics/engine/Engine.cpp 
-    src/view/graphics/engine/Light.cpp
+    src/model/Scene.cpp 
+    src/model/Object.cpp 
+    src/model/Light.cpp 
+    src/model/RGBAColor.cpp 
     src/model/Vector.cpp 
     src/model/UnitVector.cpp 
-    src/view/graphics/engine/Observer.cpp)
+    src/model/Observer.cpp)
 
 target_link_libraries(proj ${SDL2_LIBRARIES})
 

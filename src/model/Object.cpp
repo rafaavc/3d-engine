@@ -1,4 +1,4 @@
-#include "Object.h"
+#include "model/Object.h"
 
 void Object::setVertexesEdgesAndPolygons(std::vector<unsigned> &vertexes, std::vector<unsigned> &edges, std::vector<unsigned> &polygons) {
     this->vertexes = vertexes;

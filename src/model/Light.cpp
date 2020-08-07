@@ -1,4 +1,4 @@
-#include "Light.h"
+#include "model/Light.h"
 
 
 Light::Light(float ambient, float direct, Vector * position, UnitarianVector * direction) {
