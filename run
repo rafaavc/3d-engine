@@ -1,0 +1,10 @@
+while getopts b opt; do
+    case $opt in
+        b)
+            ./buildit
+            ;;
+    esac
+done
+
+./build/proj 
+
