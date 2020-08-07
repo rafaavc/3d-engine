@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 
-project(CMakeTest)
+project(3d-engine)
 
 
 find_package(SDL2 REQUIRED)
@@ -9,19 +9,19 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 
 add_executable(proj 
-    main.cpp 
-    view/graphics/SDLAdapter.cpp 
-    view/View.cpp 
-    controller/Controller.cpp 
-    model/Model.cpp 
-    view/graphics/RGBAColor.cpp 
-    view/graphics/engine/Scene.cpp 
-    view/graphics/engine/Object.cpp 
-    view/graphics/engine/Engine.cpp 
-    view/graphics/engine/Light.cpp
-    model/Vector.cpp 
-    model/UnitVector.cpp 
-    view/graphics/engine/Observer.cpp)
+    src/main.cpp 
+    src/view/graphics/SDLAdapter.cpp 
+    src/view/View.cpp 
+    src/controller/Controller.cpp 
+    src/model/Model.cpp 
+    src/view/graphics/RGBAColor.cpp 
+    src/view/graphics/engine/Scene.cpp 
+    src/view/graphics/engine/Object.cpp 
+    src/view/graphics/engine/Engine.cpp 
+    src/view/graphics/engine/Light.cpp
+    src/model/Vector.cpp 
+    src/model/UnitVector.cpp 
+    src/view/graphics/engine/Observer.cpp)
 
 target_link_libraries(proj ${SDL2_LIBRARIES})
 
