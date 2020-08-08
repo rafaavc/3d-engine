@@ -44,21 +44,20 @@ void View::drawTriangle(Triangle &triangle) {
     float dx2y = (v2.first-v1.first)/(float)dy2;
     float dx3y = (v3.first-v1.first)/(float)dy3;
 
+    //float dz2y = 
+
     int ycount = 0;
     int x2, x3;
     while(ycount != dy2) {
         x2 = v1.first + (float)ycount*dx2y;
         x3 = v1.first + (float)ycount*dx3y;
 
-        if (x3 < x2) {
-            for (int i = x3; i <= x2; i++) {
-                graphics->drawPixel(i, currentY);
-            }
-        } else {
-            for (int i = x2; i <= x3; i++) {
-                graphics->drawPixel(i, currentY);
-            }
+        if (x3 < x2) swap(x3, x2);
+        for (int i = x2; i <= x3; i++) {
+            //if (engine->isVisible(i, currentY, ))
+                graphics->drawPixel(i, currentY, triangle.getColor());
         }
+
         ycount++;
         currentY++;
     }
@@ -66,22 +65,16 @@ void View::drawTriangle(Triangle &triangle) {
     dy2 = v3.second - v2.second;
     dx2y = (v3.first-v2.first)/(float)dy2;
 
-    int x2Begin = v2.first;
-
     int prevYCount = ycount;
     ycount = 0;
     while(ycount != dy2) {
-        x2 = x2Begin + (float)ycount*dx2y;
+        x2 = v2.first + (float)ycount*dx2y;
         x3 = v1.first + (float)(prevYCount+ycount)*dx3y;
 
-        if (x3 < x2) {
-            for (int i = x3; i <= x2; i++) {
-                graphics->drawPixel(i, currentY);
-            }
-        } else {
-            for (int i = x2; i <= x3; i++) {
-                graphics->drawPixel(i, currentY);
-            }
+        if (x3 < x2) swap(x3, x2);
+        for (int i = x2; i <= x3; i++) {
+            //if (engine->isVisible(i, currentY, ))
+                graphics->drawPixel(i, currentY, triangle.getColor());
         }
 
         ycount++;

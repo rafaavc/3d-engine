@@ -1,11 +1,24 @@
 #include "controller/Engine.h"
 #include "model/Matrix4x4.h"
 #include "controller/TriangleController.h"
+#include <string.h>
 
 Engine::Engine(Model * model, Scene * scene) {
     this->model = model;
     this->projMatrix = TransformationMatrix::getProjectionMatrix(model, .1, 1000., 120.);
     setScene(scene);
+}
+
+void Engine::resetZBuffer() {
+    memset(zBuffer, 0, WIDTH*HEIGHT);
+}
+
+bool Engine::isVisible(int x, int y, int z) {
+    if (zBuffer[x][y] < z) {
+        zBuffer[x][y] = z;
+        return true;
+    }
+    return false;
 }
 
 void Engine::setScene(Scene * scene) {
@@ -26,6 +39,8 @@ void Engine::getTriangleProjections(std::vector<Triangle> & projectedTriangles) 
 
         Triangle transformedTriangle = transfMatrix * triangle;
         if (TriangleController::backfaceCull(scene->getObserver()->getDirection(), scene->getObserver()->getPosition(), transformedTriangle)) continue;
+
+        TriangleController::getColoredTriangle(scene, transformedTriangle);
 
         projectedTriangles.push_back(TriangleController::getProjectedTriangle(transformedTriangle, projMatrix, model));
     }

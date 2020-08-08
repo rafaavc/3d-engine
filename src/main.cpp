@@ -3,11 +3,11 @@
 using namespace std;
 
 int main() {
-    Model * model = new Model("3D Engine", 1920, 1080);
+    Model * model = new Model("3D Engine", WIDTH, HEIGHT);
     
 	Graphics * graphics = new SDLAdapter();
 
-    Light * myLight = new Light(1, 1, Vector3d(0, 0, 0), Vector3d(1, -1, 1));
+    Light * myLight = new Light(1, 1, Vector3d(0, 0, 0), Vector3d(0, 0, 1));
     Object * cube = new Object();
 
     cube->addVertex(-1, -1, -1); // 0
