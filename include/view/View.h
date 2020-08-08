@@ -14,6 +14,7 @@ public:
     void init();
     void quit();
     Graphics::GraphicsCommand getUserInput(char * specifier);
+    void drawTriangle(Triangle &triangle);
     void draw();
 };
 

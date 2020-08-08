@@ -2,7 +2,7 @@
 #include "controller/TransformationMatrix.h"
 
 
-Triangle TriangleController::getProjectedTriangle(Triangle triangle, Matrix4x4 &projMatrix, Model * model) {
+Triangle TriangleController::getProjectedTriangle(Triangle &triangle, Matrix4x4 &projMatrix, Model * model) {
     TransformationMatrix transfMatrix;
     transfMatrix.setIdentity();
     transfMatrix.pushMatrix(TransformationMatrix::getScalingMatrix(model->getWidth()/2., model->getHeight()/2., 1));

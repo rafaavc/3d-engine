@@ -13,7 +13,7 @@ void Engine::setScene(Scene * scene) {
 }
 
 void Engine::getTriangleProjections(std::vector<Triangle> & projectedTriangles) {
-    timeVal += 0.07;
+    timeVal += 1;
     std::vector<Triangle> triangles = scene->getTriangles();
 
     TransformationMatrix transfMatrix;

@@ -96,6 +96,10 @@ Vector3d Vector3d::invert() const {
     return Vector3d(-getX(), -getY(), -getZ());
 }
 
+bool operator==(const Vector3d &v1, const Vector3d &v2) {
+    return (int)v1.getX() == (int)v2.getX() && (int)v1.getY() == (int)v2.getY();
+}
+
 Vector3d operator*(const Vector3d &v1, const Vector3d &v2) {
     return Vector3d(v1.getX()*v2.getX(), v1.getY()*v2.getY(), v1.getZ()*v2.getZ());
 }

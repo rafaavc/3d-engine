@@ -7,7 +7,7 @@
 
 class TriangleController {
 public:
-    static Triangle getProjectedTriangle(Triangle triangle, Matrix4x4 &projMatrix, Model * model);
+    static Triangle getProjectedTriangle(Triangle &triangle, Matrix4x4 &projMatrix, Model * model);
     static bool backfaceCull(Vector3d &cameraDir, Vector3d &cameraPosition, Triangle &triangle);
 };
 
