@@ -2,6 +2,7 @@
 #define VIEW_H
 
 #include "controller/Engine.h"
+#include "view/SDLAdapter.h"
 
 class View {
 private:

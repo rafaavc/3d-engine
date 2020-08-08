@@ -43,7 +43,7 @@ int main() {
     Observer * camera = new Observer(Vector3d(0, 0, 0), Vector3d(0, 0, 1));
     scene->setObserver(camera);
 
-    Engine * engine = new Engine(model, graphics, scene);
+    Engine * engine = new Engine(model, scene);
 
     View * view = new View(model, engine, graphics);
 
