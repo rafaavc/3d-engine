@@ -5,20 +5,28 @@ Vector3d::Vector3d(float x, float y, float z) {
     setX(x);
     setY(y);
     setZ(z);
+    normalize();
 }
 
 Vector3d::Vector3d(const Vector3d &v) {
     setX(v.getX());
     setY(v.getY());
     setZ(v.getZ());
+    normalize();
+}
+
+void Vector3d::setState(VectorState state) {
+    this->state = state;
 }
 
 void Vector3d::setValue(unsigned pos, float value) {
     vec[pos] = value;
-    normalized = false;
+    normalize();
 }
 
 float Vector3d::getValue(unsigned pos) const {
+    if (state == GET_NORMALIZED)
+        return vecNormalized[pos];
     return vec[pos];
 }
 
@@ -54,16 +62,15 @@ void Vector3d::setW(float w) {
     setValue(3, w);
 }
 
-bool Vector3d::isNormalized() const {
-    return normalized;
+void Vector3d::normalize() {
+    float mod = std::sqrt(std::pow(getX(), 2) + std::pow(getY(), 2) + std::pow(getZ(), 2));
+    vecNormalized[0] = getX()/mod;
+    vecNormalized[1] = getY()/mod;
+    vecNormalized[2] = getZ()/mod;
 }
 
-void Vector3d::normalize() {
-    float mod = sqrt(pow(getX(), 2) + pow(getY(), 2) + pow(getZ(), 2));
-    setX(getX()/mod);
-    setY(getY()/mod);
-    setZ(getZ()/mod);
-    normalized = true;
+Vector3d Vector3d::getNormalized() const {
+    return Vector3d(vecNormalized[0], vecNormalized[1],vecNormalized[2]);
 }
 
 float Vector3d::mod() const {
@@ -95,4 +102,9 @@ Vector3d operator+(const Vector3d &v1, const Vector3d &v2) {
 
 Vector3d operator-(const Vector3d &v1, const Vector3d &v2) {
     return Vector3d(v1.getX()-v2.getX(), v1.getY()-v2.getY(), v1.getZ()-v2.getZ());
+}
+
+std::ostream &operator<<(std::ostream &out, Vector3d &v) {
+    out << "{" << v.getX() << ", " << v.getY() << ", " << v.getZ() << "}" << std::endl;
+    return out;
 }

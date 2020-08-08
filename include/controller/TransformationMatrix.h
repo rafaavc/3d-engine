@@ -22,6 +22,7 @@ public:
     static Matrix4x4 getZRotationMatrix(float angle);
     static Matrix4x4 getYRotationMatrix(float angle);
     static Matrix4x4 getXRotationMatrix(float angle);
+    friend Triangle operator*(TransformationMatrix &tm, Triangle &triangle);
 };
 
 #endif

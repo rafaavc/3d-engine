@@ -7,7 +7,7 @@ int main() {
     
 	Graphics * graphics = new SDLAdapter();
 
-    Light * myLight = new Light(1, 1, new Vector3d(0, 0, 0), new UnitarianVector(1, -1, 1));
+    Light * myLight = new Light(1, 1, Vector3d(0, 0, 0), Vector3d(1, -1, 1));
     Object * cube = new Object();
 
     cube->addVertex(-1, -1, -1); // 0
@@ -40,7 +40,7 @@ int main() {
     Scene * scene = new Scene();
     scene->addLight(myLight);
     scene->addObject(cube);
-    Observer * camera = new Observer(new Vector3d(0, 0, 0), new UnitarianVector(0, 0, 1));
+    Observer * camera = new Observer(new Vector3d(0, 0, 0), new Vector3d(0, 0, 1));
     scene->setObserver(camera);
 
     Engine * engine = new Engine(model, graphics, scene);

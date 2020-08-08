@@ -25,8 +25,6 @@ Matrix4x4 Matrix4x4::getIdentity() {
     return mx;
 }
 
-// TODO
-
 Matrix4x4 operator*(Matrix4x4 &mx1, Matrix4x4 &mx2) {
     Matrix4x4 res;
 
@@ -68,6 +66,18 @@ Vector3d operator*(Matrix4x4 &mx, Vector3d &v) {
     }
 
     return res;
+}
+
+Triangle operator*(Matrix4x4 &mx, Triangle &triangle) {
+    Vector3d v1 = triangle.getVertexes()[0];
+    Vector3d v2 = triangle.getVertexes()[1];
+    Vector3d v3 = triangle.getVertexes()[2];
+
+    v1 = mx * (v1);
+    v2 = mx * (v2);
+    v3 = mx * (v3);
+
+    return Triangle(v1, v2, v3);
 }
 
 std::ostream &operator<<(std::ostream & out, Matrix4x4 mx) {

@@ -15,13 +15,13 @@ add_executable(proj
     src/controller/Controller.cpp 
     src/controller/Engine.cpp 
     src/controller/TransformationMatrix.cpp
+    src/controller/TriangleController.cpp
     src/model/Model.cpp 
     src/model/Scene.cpp 
     src/model/Object.cpp 
     src/model/Light.cpp 
     src/model/RGBAColor.cpp 
     src/model/Vector3d.cpp 
-    src/model/UnitVector.cpp 
     src/model/Observer.cpp
     src/model/Triangle.cpp
     src/model/Matrix4x4.cpp

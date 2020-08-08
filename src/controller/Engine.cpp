@@ -1,6 +1,7 @@
 #include "controller/Engine.h"
 #include <unistd.h>
 #include "model/Matrix4x4.h"
+#include "controller/TriangleController.h"
 
 Engine::Engine(Model * model, Graphics * graphics, Scene * scene) {
     this->graphics = graphics;
@@ -14,7 +15,7 @@ void Engine::setScene(Scene * scene) {
 }
 
 void Engine::render() {
-    timeVal += .5;
+    timeVal += 0.5;
     std::vector<Triangle> triangles = scene->getTriangles();
 
     graphics->clear(RGBAColor(0, 0, 0));
@@ -24,25 +25,13 @@ void Engine::render() {
     TransformationMatrix transfMatrix;
 
     for (Triangle triangle : triangles) {
-        //std::cout << "START" << std::endl;
         transfMatrix.setIdentity();
         transfMatrix.pushMatrix(TransformationMatrix::getXRotationMatrix(timeVal));
         transfMatrix.pushMatrix(TransformationMatrix::getZRotationMatrix(timeVal));
 
+        Triangle transformedTriangle = transfMatrix * triangle;
 
-        Vector3d v1 = triangle.getVertexes()[0];
-        Vector3d v2 = triangle.getVertexes()[1];
-        Vector3d v3 = triangle.getVertexes()[2];
-
-        Matrix4x4 transf = transfMatrix.getTransformationMatrix();
-
-        Vector3d v11 = transf * (v1);
-        Vector3d v21 = transf * (v2);
-        Vector3d v31 = transf * (v3);
-
-        Triangle transformedTriangle(v11, v21, v31);
-
-        projectedTriangles.push_back(transformedTriangle.getProjectedTriangle(projMatrix, model));
+        projectedTriangles.push_back(TriangleController::getProjectedTriangle(transformedTriangle, projMatrix, model));
     }
 
     for (Triangle triangle : projectedTriangles) {

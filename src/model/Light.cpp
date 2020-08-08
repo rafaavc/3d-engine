@@ -1,7 +1,7 @@
 #include "model/Light.h"
 
 
-Light::Light(float ambient, float direct, Vector3d * position, UnitarianVector * direction) {
+Light::Light(float ambient, float direct, Vector3d position, Vector3d direction) {
     this->ambient = ambient;
     this->direct = direct;
     this->direction = direction;
@@ -16,15 +16,10 @@ float Light::getDirect() {
     return direct;
 }
 
-UnitarianVector * Light::getDirection() {
+Vector3d Light::getDirection() {
     return direction;
 }
 
-Vector3d * Light::getPosition() {
+Vector3d Light::getPosition() {
     return position;
-}
-
-Light::~Light() {
-    delete direction;
-    delete position;
 }

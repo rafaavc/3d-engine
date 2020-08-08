@@ -1,16 +1,15 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-
-#include "model/UnitVector.h"
+#include "model/Vector3d.h"
 
 class Observer {
 private:
-    UnitarianVector * direction;
+    Vector3d * direction;
     Vector3d * position;
 public:
-    Observer(Vector3d * position, UnitarianVector * direction);
-    UnitarianVector * getDirection();
+    Observer(Vector3d * position, Vector3d * direction);
+    Vector3d * getDirection();
     Vector3d * getPosition();
     ~Observer();
 };

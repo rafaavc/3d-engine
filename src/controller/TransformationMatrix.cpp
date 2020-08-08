@@ -67,3 +67,8 @@ Matrix4x4 TransformationMatrix::getXRotationMatrix(float angle /* degrees */) {
     return Matrix4x4(grid);
 }
 
+Triangle operator*(TransformationMatrix &tm, Triangle &triangle) {
+    Matrix4x4 transf = tm.getTransformationMatrix();
+    return transf * triangle;
+}
+
