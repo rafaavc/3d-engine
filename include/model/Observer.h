@@ -7,11 +7,11 @@
 class Observer {
 private:
     UnitarianVector * direction;
-    Vector * position;
+    Vector3d * position;
 public:
-    Observer(Vector * position, UnitarianVector * direction);
+    Observer(Vector3d * position, UnitarianVector * direction);
     UnitarianVector * getDirection();
-    Vector * getPosition();
+    Vector3d * getPosition();
     ~Observer();
 };
 

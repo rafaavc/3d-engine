@@ -27,22 +27,27 @@ void SDLAdapter::quitGraphics() {
 	SDL_Quit();
 }
 
-void SDLAdapter::setDrawColor(RGBAColor * color) {
-	SDL_SetRenderDrawColor(this->renderer, color->getR(), color->getG(), color->getB(), color->getA());
-}
-
-void SDLAdapter::clear(RGBAColor * color) {
-	setDrawColor(color);
-	SDL_RenderClear(this->renderer);
-}
-
 void SDLAdapter::render() {
 	SDL_RenderPresent(this->renderer);
 }
 
-void SDLAdapter::drawPixel(RGBAColor * color, int xpos, int ypos) {
+void SDLAdapter::setDrawColor(RGBAColor color) {
+	SDL_SetRenderDrawColor(this->renderer, color.getR(), color.getG(), color.getB(), color.getA());
+}
+
+void SDLAdapter::clear(RGBAColor color) {
+	setDrawColor(color);
+	SDL_RenderClear(this->renderer);
+}
+
+void SDLAdapter::drawPixel(int xpos, int ypos, RGBAColor color) {
 	setDrawColor(color);
 	SDL_RenderDrawPoint(renderer, xpos, ypos);
+}
+
+void SDLAdapter::drawLine(int x1, int y1, int x2, int y2, RGBAColor color) {
+	setDrawColor(color);
+	SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
 }
 
 Graphics::GraphicsCommand SDLAdapter::getUserInput(char * specifier) {

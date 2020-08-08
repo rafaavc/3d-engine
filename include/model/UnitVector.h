@@ -1,14 +1,14 @@
 #ifndef UNITARIANVECTOR_H
 #define UNITARIANVECTOR_H
 
-#include "Vector.h"
+#include "Vector3d.h"
 
-class UnitarianVector : public Vector {
+class UnitarianVector : public Vector3d {
 private:
 
 public:
     UnitarianVector(int x, int y, int z);
-    UnitarianVector(Vector v);
+    UnitarianVector(Vector3d v);
 };
 
 #endif

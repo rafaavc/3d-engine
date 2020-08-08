@@ -1,4 +1,5 @@
 #include "model/Scene.h"
+#include <iostream>
 
 Scene::~Scene() {
     for (Object * obj : sceneObjects) delete obj;
@@ -23,6 +24,10 @@ void Scene::setObserver(Observer * observer) {
 
 Observer * Scene::getObserver() {
     return observer;
+}
+
+const std::vector<Triangle> &Scene::getTriangles() const {
+    return sceneObjects.at(0)->getTriangles();
 }
 
 

@@ -1,7 +1,7 @@
 #include "model/Observer.h"
 
 
-Observer::Observer(Vector * position, UnitarianVector * direction) {
+Observer::Observer(Vector3d * position, UnitarianVector * direction) {
     this->direction = direction;
     this->position = position;
 }
@@ -10,7 +10,7 @@ UnitarianVector * Observer::getDirection() {
     return direction;
 }
 
-Vector * Observer::getPosition() {
+Vector3d * Observer::getPosition() {
     return position;
 }
 

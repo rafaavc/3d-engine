@@ -16,6 +16,7 @@ public:
     std::vector<Light *> &getLights();
     Observer * getObserver();
     void setObserver(Observer * observerPosition);
+    const std::vector<Triangle> &getTriangles() const;
     ~Scene();
 };
 
