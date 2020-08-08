@@ -16,10 +16,10 @@ float Light::getDirect() {
     return direct;
 }
 
-Vector3d Light::getDirection() {
+Vector3d &Light::getDirection() {
     return direction;
 }
 
-Vector3d Light::getPosition() {
+Vector3d &Light::getPosition() {
     return position;
 }

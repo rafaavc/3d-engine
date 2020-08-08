@@ -11,8 +11,8 @@ public:
     Light(float ambient, float direct, Vector3d position, Vector3d direction);
     float getAmbient();
     float getDirect();
-    Vector3d getDirection();
-    Vector3d getPosition();
+    Vector3d &getDirection();
+    Vector3d &getPosition();
 };
 
 #endif

@@ -29,7 +29,7 @@ int main() {
     cube->addTriangle(3, 7, 5);
 
     cube->addTriangle(3, 2, 7); // frontfacing
-    cube->addTriangle(2, 7, 3);
+    cube->addTriangle(2, 6, 7);
 
     cube->addTriangle(2, 0, 4); // leftfacing
     cube->addTriangle(2, 4, 6);
@@ -40,7 +40,7 @@ int main() {
     Scene * scene = new Scene();
     scene->addLight(myLight);
     scene->addObject(cube);
-    Observer * camera = new Observer(new Vector3d(0, 0, 0), new Vector3d(0, 0, 1));
+    Observer * camera = new Observer(Vector3d(0, 0, 0), Vector3d(0, 0, 1));
     scene->setObserver(camera);
 
     Engine * engine = new Engine(model, graphics, scene);
@@ -50,14 +50,6 @@ int main() {
     Controller * controller = new Controller(model, view);
 
     controller->start();
-
-    delete model;
-    delete graphics;
-    delete engine;
-    delete view;
-    delete controller;
-    delete scene;
-    delete camera;
 
     return EXIT_SUCCESS;
 }

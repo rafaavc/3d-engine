@@ -32,7 +32,8 @@ public:
     Vector3d getNormalized() const;
     float mod() const;
     float sum() const;
-    static float scalarProd(Vector3d v1, Vector3d v2);
+    static float scalarProd(Vector3d &v1, Vector3d &v2);
+    static Vector3d crossProd(Vector3d &v1, Vector3d &v2);
     Vector3d invert() const;
     friend Vector3d operator*(const Vector3d &v1, const Vector3d &v2);
     friend Vector3d operator+(const Vector3d &v1, const Vector3d &v2);

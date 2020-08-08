@@ -15,7 +15,7 @@ void Engine::setScene(Scene * scene) {
 }
 
 void Engine::render() {
-    timeVal += 0.5;
+    timeVal += 0.07;
     std::vector<Triangle> triangles = scene->getTriangles();
 
     graphics->clear(RGBAColor(0, 0, 0));
@@ -26,10 +26,12 @@ void Engine::render() {
 
     for (Triangle triangle : triangles) {
         transfMatrix.setIdentity();
+        transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, 0, 20));
         transfMatrix.pushMatrix(TransformationMatrix::getXRotationMatrix(timeVal));
         transfMatrix.pushMatrix(TransformationMatrix::getZRotationMatrix(timeVal));
 
         Triangle transformedTriangle = transfMatrix * triangle;
+        if (TriangleController::backfaceCull(scene->getObserver()->getDirection(), scene->getObserver()->getPosition(), transformedTriangle)) continue;
 
         projectedTriangles.push_back(TriangleController::getProjectedTriangle(transformedTriangle, projMatrix, model));
     }

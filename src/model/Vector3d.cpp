@@ -81,8 +81,15 @@ float Vector3d::sum() const {
     return getX() + getY() + getZ();
 }
 
-float Vector3d::scalarProd(Vector3d v1, Vector3d v2) {
+float Vector3d::scalarProd(Vector3d &v1, Vector3d &v2) {
     return (v1 * v2).sum();
+}
+
+Vector3d Vector3d::crossProd(Vector3d &v1, Vector3d &v2) {
+    float x = v1.getY()*v2.getZ() - v2.getY()*v1.getZ();
+    float y = -v1.getX()*v2.getZ() + v2.getX()*v1.getZ();
+    float z = v1.getX()*v2.getY() - v2.getX()*v1.getY();
+    return Vector3d(x, y, z);
 }
 
 Vector3d Vector3d::invert() const {
