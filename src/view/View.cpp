@@ -33,6 +33,8 @@ void View::drawTriangle(Triangle &triangle) {
     if (v3.second < v1.second) swap(v3, v1);
     if (v3.second < v2.second) swap(v2, v3);
 
+    graphics->setDrawColor(triangle.getColor());
+
     // SPAGHETTIIIIIII!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // TODO: Refactor
 
@@ -55,7 +57,7 @@ void View::drawTriangle(Triangle &triangle) {
         if (x3 < x2) swap(x3, x2);
         for (int i = x2; i <= x3; i++) {
             //if (engine->isVisible(i, currentY, ))
-                graphics->drawPixel(i, currentY, triangle.getColor());
+                graphics->drawPixel(i, currentY);
         }
 
         ycount++;
@@ -74,7 +76,7 @@ void View::drawTriangle(Triangle &triangle) {
         if (x3 < x2) swap(x3, x2);
         for (int i = x2; i <= x3; i++) {
             //if (engine->isVisible(i, currentY, ))
-                graphics->drawPixel(i, currentY, triangle.getColor());
+                graphics->drawPixel(i, currentY);
         }
 
         ycount++;
@@ -89,7 +91,8 @@ void View::drawTriangle(Triangle &triangle) {
 
 
 void View::draw() {
-    graphics->clear(RGBAColor(0, 0, 0));
+    graphics->setDrawColor(RGBAColor(0, 0, 0));
+    graphics->clear();
 
     std::vector<Triangle> triangles;
     engine->getTriangleProjections(triangles);
@@ -99,5 +102,5 @@ void View::draw() {
     }
 
     graphics->render();
-    usleep(3000);
+    //usleep(3000);
 }

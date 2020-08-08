@@ -1,5 +1,8 @@
 # 3D Engine
-Experimental build of a 3d engine from the ground-up.
+Experimental build of a 3d engine from the ground-up.<br/><br/>
+
+<img src = "docs/showcase.gif" width="400" /><br/>
+Rendering a rotating cube with constant shading. 
 
 ## Dependencies
 

@@ -19,10 +19,10 @@ public:
     virtual void initGraphics(string windowTitle, int width, int height) = 0;
     virtual void quitGraphics() = 0;
     virtual void render() = 0;
-    virtual void clear(RGBAColor color = RGBAColor(0, 0, 0)) = 0;
+    virtual void clear() = 0;
     virtual void setDrawColor(RGBAColor color = RGBAColor(255, 255, 255)) = 0;
-    virtual void drawPixel(int xpos, int ypos, RGBAColor color = RGBAColor(255, 255, 255)) = 0;
-    virtual void drawLine(int x1, int y1, int x2, int y2, RGBAColor color = RGBAColor(255, 255, 255)) = 0;
+    virtual void drawPixel(int xpos, int ypos) = 0;
+    virtual void drawLine(int x1, int y1, int x2, int y2) = 0;
     virtual GraphicsCommand getUserInput(char * specifier) = 0;
 };
 
