@@ -39,7 +39,7 @@ Object * FileManager::getObjectFromObjFile(std::string filePath) {
                     subStr.clear();
                     lineStream >> subStr;
                     int place = subStr.find('/');
-                    values[i] = (float)stoi(subStr.substr(0, place));
+                    values[i] = stoi(subStr.substr(0, place));
                 }
                 res->addTriangle((unsigned)values[0]-1, (unsigned)values[1]-1, (unsigned)values[2]-1);
                 break;

@@ -6,5 +6,5 @@ while getopts b opt; do
     esac
 done
 
-./build/proj $1
+./build/proj
 

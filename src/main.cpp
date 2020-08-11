@@ -58,7 +58,7 @@ int main(int argc, char ** argv) {
     View * view = new View(model, engine, graphics);
 
     Controller * controller = new Controller(model, view);
-
+    
     controller->start();
 
     return EXIT_SUCCESS;
