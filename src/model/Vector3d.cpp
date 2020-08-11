@@ -27,6 +27,7 @@ void Vector3d::setValue(unsigned pos, float value) {
 float Vector3d::getValue(unsigned pos) const {
     if (state == GET_NORMALIZED)
         return vecNormalized[pos];
+    else if (state == TRUNCATED && pos != 2) return (int)vec[pos];
     return vec[pos];
 }
 

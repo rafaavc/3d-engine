@@ -11,11 +11,11 @@ private:
     Scene * scene;
     Matrix4x4 projMatrix;
     float timeVal = 0;
-    unsigned zBuffer[WIDTH][HEIGHT];
+    float zBuffer[WIDTH][HEIGHT];
 public:
     Engine(Model * model, Scene * scene);
     void resetZBuffer();
-    bool isVisible(int x, int y, int z);
+    bool isVisible(int x, int y, float z);
     void setScene(Scene * scene);
     void getTriangleProjections(std::vector<Triangle> & projectedTriangles);
 };

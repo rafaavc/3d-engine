@@ -60,7 +60,6 @@ bool TriangleController::backfaceCull(Vector3d &cameraDir, Vector3d &cameraPosit
     normal.setState(Vector3d::GET_NORMALIZED);
 
     Vector3d vectorFromFaceToCamera = vectorFromCameraToFace.invert();
-
     return Vector3d::scalarProd(vectorFromFaceToCamera, normal) <= 0;
 }
 

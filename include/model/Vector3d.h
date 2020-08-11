@@ -7,7 +7,8 @@ class Vector3d {
 public:
     enum VectorState {
         GET_NORMALIZED,
-        GET_REGULAR
+        GET_REGULAR,
+        TRUNCATED
     };
 protected:
     float vec[4] = { 0, 0, 0, 1 }, vecNormalized[4] = { 0, 0, 0, 1 };

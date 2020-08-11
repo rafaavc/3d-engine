@@ -1,8 +1,8 @@
 # 3D Engine
 Experimental build of a 3d engine from the ground-up.<br/><br/>
 
-<img src = "docs/showcase.gif" width="400" /><br/>
-Rendering a rotating cube with constant shading. 
+<img src = "docs/teapot-showcase.gif" width="600" /><br/>
+Rendering a rotating Utah Teapot with constant shading and Z-Buffer. 
 
 ## Dependencies
 

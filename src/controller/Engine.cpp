@@ -2,6 +2,7 @@
 #include "model/Matrix4x4.h"
 #include "controller/TriangleController.h"
 #include <string.h>
+#include <climits>
 
 Engine::Engine(Model * model, Scene * scene) {
     this->model = model;
@@ -10,10 +11,14 @@ Engine::Engine(Model * model, Scene * scene) {
 }
 
 void Engine::resetZBuffer() {
-    memset(zBuffer, 0, WIDTH*HEIGHT);
+    for (int i = 0; i < WIDTH; i++) {
+        for (int j = 0; j < HEIGHT; j++) {
+            zBuffer[i][j] = -10000000.;
+        }
+    }
 }
 
-bool Engine::isVisible(int x, int y, int z) {
+bool Engine::isVisible(int x, int y, float z) {
     if (zBuffer[x][y] < z) {
         zBuffer[x][y] = z;
         return true;
@@ -26,7 +31,7 @@ void Engine::setScene(Scene * scene) {
 }
 
 void Engine::getTriangleProjections(std::vector<Triangle> & projectedTriangles) {
-    timeVal += 0.4;
+    timeVal += 0.5;
     std::vector<Triangle> triangles = scene->getTriangles();
 
     TransformationMatrix transfMatrix;
@@ -34,8 +39,10 @@ void Engine::getTriangleProjections(std::vector<Triangle> & projectedTriangles) 
     for (Triangle triangle : triangles) {
         transfMatrix.setIdentity();
         transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, 0, 20));
+        transfMatrix.pushMatrix(TransformationMatrix::getScalingMatrix(0.7, 0.7, 0.7));
         transfMatrix.pushMatrix(TransformationMatrix::getXRotationMatrix(timeVal));
         transfMatrix.pushMatrix(TransformationMatrix::getZRotationMatrix(timeVal));
+        //transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, -1.5, 0));
 
         Triangle transformedTriangle = transfMatrix * triangle;
         if (TriangleController::backfaceCull(scene->getObserver()->getDirection(), scene->getObserver()->getPosition(), transformedTriangle)) continue;

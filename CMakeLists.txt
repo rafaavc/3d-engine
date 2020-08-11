@@ -16,6 +16,7 @@ add_executable(proj
     src/controller/Engine.cpp 
     src/controller/TransformationMatrix.cpp
     src/controller/TriangleController.cpp
+    src/controller/FileManager.cpp
     src/model/Model.cpp 
     src/model/Scene.cpp 
     src/model/Object.cpp 
