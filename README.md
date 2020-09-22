@@ -11,6 +11,8 @@ Rendering a rotating Utah Teapot with constant shading and Z-Buffer.<br/><br/>
 
 - Constant Shading
 - Z-Buffer
+- Backface Culling
+- Projection of 3D points in 2D space
 - Transformations
 - .obj support
 
