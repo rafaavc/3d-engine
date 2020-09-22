@@ -4,12 +4,13 @@
 Observer::Observer(Vector3d position, Vector3d direction) {
     this->direction = direction;
     this->position = position;
+    direction.setState(Vector3d::GET_NORMALIZED);
 }
 
-Vector3d &Observer::getDirection() {
+const Vector3d &Observer::getDirection() const {
     return direction;
 }
 
-Vector3d &Observer::getPosition() {
+const Vector3d &Observer::getPosition() const {
     return position;
 }

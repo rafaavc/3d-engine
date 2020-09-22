@@ -1,10 +1,20 @@
 # 3D Engine
 Experimental build of a 3d engine from the ground up.<br/><br/>
 
-<img src = "docs/teapot-showcase.gif" width="600" /><br/>
+<img src = "docs/rotatingCube.gif" width="600" /><br/>
+Rendering a rotating cube with constant shading and Z-Buffer.<br/><br/>
+
+<img src = "docs/rotatingTeapot.gif" width="600" /><br/>
 Rendering a rotating Utah Teapot with constant shading and Z-Buffer.<br/><br/>
 
-## Dependencies
+## Features
+
+- Constant Shading
+- Z-Buffer
+- Transformations
+- .obj support
+
+## Third party dependencies
 
 - [SDL2](https://libsdl.org)
 - [CMake](https://cmake.org)

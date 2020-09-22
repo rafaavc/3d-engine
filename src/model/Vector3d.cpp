@@ -12,11 +12,17 @@ Vector3d::Vector3d(const Vector3d &v) {
     setX(v.getX());
     setY(v.getY());
     setZ(v.getZ());
+    setW(v.getW());
     normalize();
+    this->state = v.getState();
 }
 
 void Vector3d::setState(VectorState state) {
     this->state = state;
+}
+
+Vector3d::VectorState Vector3d::getState() const {
+    return state;
 }
 
 void Vector3d::setValue(unsigned pos, float value) {
@@ -27,7 +33,7 @@ void Vector3d::setValue(unsigned pos, float value) {
 float Vector3d::getValue(unsigned pos) const {
     if (state == GET_NORMALIZED)
         return vecNormalized[pos];
-    else if (state == TRUNCATED && pos != 2) return (int)vec[pos];
+    else if (state == GET_TRUNCATED && pos != 2) return (int)vec[pos];
     return vec[pos];
 }
 
@@ -82,11 +88,11 @@ float Vector3d::sum() const {
     return getX() + getY() + getZ();
 }
 
-float Vector3d::scalarProd(Vector3d &v1, Vector3d &v2) {
+float Vector3d::scalarProd(const Vector3d &v1, const Vector3d &v2) {
     return (v1 * v2).sum();
 }
 
-Vector3d Vector3d::crossProd(Vector3d &v1, Vector3d &v2) {
+Vector3d Vector3d::crossProd(const Vector3d &v1, const Vector3d &v2) {
     float x = v1.getY()*v2.getZ() - v2.getY()*v1.getZ();
     float y = -v1.getX()*v2.getZ() + v2.getX()*v1.getZ();
     float z = v1.getX()*v2.getY() - v2.getX()*v1.getY();

@@ -11,7 +11,7 @@ Vector3d * Triangle::getVertexes() const {
     return (Vector3d *) vertexes;
 }
 
-RGBAColor Triangle::getColor() const {
+const RGBAColor &Triangle::getColor() const {
     return color;
 }
 

@@ -24,9 +24,9 @@ void View::drawTriangle(Triangle &triangle) {
     Vector3d v2 = triangle.getVertexes()[1];
     Vector3d v3 = triangle.getVertexes()[2];
 
-    v1.setState(Vector3d::TRUNCATED);
-    v2.setState(Vector3d::TRUNCATED);
-    v3.setState(Vector3d::TRUNCATED);
+    v1.setState(Vector3d::GET_TRUNCATED);
+    v2.setState(Vector3d::GET_TRUNCATED);
+    v3.setState(Vector3d::GET_TRUNCATED);
 
     // ordering the vertexes
     if (v2.getY() < v1.getY()) swap(v2, v1);

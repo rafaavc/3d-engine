@@ -3,15 +3,13 @@
 
 #include <string>
 
-using namespace std;
-
 class Model {
 private:
-    string windowTitle;
+    std::string windowTitle;
     int width, height;
 public:
-    Model(string windowTitle, int width, int height);
-    string getWindowTitle();
+    Model(std::string windowTitle, int width, int height);
+    std::string getWindowTitle();
     int getWidth();
     int getHeight();
 };

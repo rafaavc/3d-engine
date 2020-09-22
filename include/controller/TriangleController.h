@@ -9,7 +9,7 @@
 class TriangleController {
 public:
     static Triangle getProjectedTriangle(Triangle &triangle, Matrix4x4 &projMatrix, Model * model);
-    static bool backfaceCull(Vector3d &cameraDir, Vector3d &cameraPosition, Triangle &triangle);
+    static bool backfaceCull(const Vector3d &cameraDir, const Vector3d &cameraPosition, const Triangle &triangle);
     static void getColoredTriangle(Scene * scene, Triangle & transformedTriangle);
 };
 

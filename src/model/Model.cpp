@@ -1,12 +1,12 @@
 #include "model/Model.h"
 
-Model::Model(string windowTitle, int width, int height) {
+Model::Model(std::string windowTitle, int width, int height) {
     this->windowTitle = windowTitle;
     this->width = width;
     this->height = height;
 }
 
-string Model::getWindowTitle() {
+std::string Model::getWindowTitle() {
     return windowTitle;
 }
 

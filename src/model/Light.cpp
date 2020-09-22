@@ -6,6 +6,7 @@ Light::Light(float ambient, float direct, Vector3d position, Vector3d direction)
     this->direct = direct;
     this->direction = direction;
     this->position = position;
+    direction.setState(Vector3d::GET_NORMALIZED);
 }
 
 float Light::getAmbient() {
@@ -16,10 +17,10 @@ float Light::getDirect() {
     return direct;
 }
 
-Vector3d &Light::getDirection() {
+const Vector3d &Light::getDirection() const {
     return direction;
 }
 
-Vector3d &Light::getPosition() {
+const Vector3d &Light::getPosition() const {
     return position;
 }

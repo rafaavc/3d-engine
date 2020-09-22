@@ -9,8 +9,8 @@ private:
     Vector3d position;
 public:
     Observer(Vector3d position, Vector3d direction);
-    Vector3d &getDirection();
-    Vector3d &getPosition();
+    const Vector3d &getDirection() const;
+    const Vector3d &getPosition() const;
 };
 
 #endif

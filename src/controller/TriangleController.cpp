@@ -39,12 +39,11 @@ void TriangleController::getColoredTriangle(Scene * scene, Triangle & triangle) 
 }
 
 
-bool TriangleController::backfaceCull(Vector3d &cameraDir, Vector3d &cameraPosition, Triangle &triangle) {
+bool TriangleController::backfaceCull(const Vector3d &cameraDir, const Vector3d &cameraPosition, const Triangle &triangle) {
     Vector3d vertex1 = triangle.getVertexes()[0];
 
     Vector3d vectorFromCameraToFace = vertex1 - cameraPosition;
 
-    cameraDir.setState(Vector3d::GET_NORMALIZED);
     vectorFromCameraToFace.setState(Vector3d::GET_NORMALIZED);
 
     if (Vector3d::scalarProd(vectorFromCameraToFace, cameraDir) <= 0) return true;

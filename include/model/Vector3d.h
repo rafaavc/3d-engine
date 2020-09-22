@@ -8,7 +8,7 @@ public:
     enum VectorState {
         GET_NORMALIZED,
         GET_REGULAR,
-        TRUNCATED
+        GET_TRUNCATED
     };
 protected:
     float vec[4] = { 0, 0, 0, 1 }, vecNormalized[4] = { 0, 0, 0, 1 };
@@ -18,6 +18,7 @@ public:
     Vector3d(const Vector3d &v);
     Vector3d(float x, float y, float z);
     void setState(VectorState state);
+    VectorState getState() const;
     void setValue(unsigned pos, float value);
     float getValue(unsigned pos) const;
     float getX() const;
@@ -33,8 +34,8 @@ public:
     Vector3d getNormalized() const;
     float mod() const;
     float sum() const;
-    static float scalarProd(Vector3d &v1, Vector3d &v2);
-    static Vector3d crossProd(Vector3d &v1, Vector3d &v2);
+    static float scalarProd(const Vector3d &v1, const Vector3d &v2);
+    static Vector3d crossProd(const Vector3d &v1, const Vector3d &v2);
     Vector3d invert() const;
     friend bool operator==(const Vector3d &v1, const Vector3d &v2);
     friend Vector3d operator*(const Vector3d &v1, const Vector3d &v2);

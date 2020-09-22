@@ -38,18 +38,17 @@ int main(int argc, char ** argv) {
     cube->addTriangle(4, 5, 6); // top
     cube->addTriangle(5, 7, 6);
 
-    Object * obj;
-    if (argc > 1) {
-        std::string s(argv[1]);
-        obj = FileManager::getObjectFromObjFile(s);
-    }
 
     Scene * scene = new Scene();
     scene->addLight(myLight);
-    if (argc > 1)
+
+    if (argc > 1) {
+        Object * obj;
+        std::string s(argv[1]);
+        obj = FileManager::getObjectFromObjFile(s);
         scene->addObject(obj);
-    else 
-        scene->addObject(cube);
+    } else scene->addObject(cube);
+
     Observer * camera = new Observer(Vector3d(0, 0, 0), Vector3d(0, 0, 1));
     scene->setObserver(camera);
 

@@ -30,10 +30,12 @@ Object * FileManager::getObjectFromObjFile(std::string filePath) {
 
         switch(line[0]) {
             case 'v':
+                if (line[1] != ' ') break;
                 lineStream >> holder >> values[0] >> values[1] >> values[2];
                 res->addVertex(values[0], values[1], values[2]);
                 break;
             case 'f':
+                if (line[1] != ' ') break;
                 lineStream >> holder;
                 for (int i = 0; i < 3; i++) {
                     subStr.clear();
