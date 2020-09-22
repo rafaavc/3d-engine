@@ -35,14 +35,14 @@ void Engine::getTriangleProjections(std::vector<Triangle> & projectedTriangles) 
     std::vector<Triangle> triangles = scene->getTriangles();
 
     TransformationMatrix transfMatrix;
+    transfMatrix.setIdentity();
+    transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, 0, 20));
+    transfMatrix.pushMatrix(TransformationMatrix::getScalingMatrix(.3, .3, .3));
+    transfMatrix.pushMatrix(TransformationMatrix::getXRotationMatrix(timeVal));
+    transfMatrix.pushMatrix(TransformationMatrix::getZRotationMatrix(timeVal));
+    transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, -1.5, 0));
 
     for (Triangle triangle : triangles) {
-        transfMatrix.setIdentity();
-        transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, 0, 20));
-        transfMatrix.pushMatrix(TransformationMatrix::getScalingMatrix(.3, .3, .3));
-        transfMatrix.pushMatrix(TransformationMatrix::getXRotationMatrix(timeVal));
-        transfMatrix.pushMatrix(TransformationMatrix::getZRotationMatrix(timeVal));
-        transfMatrix.pushMatrix(TransformationMatrix::getTranslationMatrix(0, -1.5, 0));
 
         Triangle transformedTriangle = transfMatrix * triangle;
         if (TriangleController::backfaceCull(scene->getObserver()->getDirection(), scene->getObserver()->getPosition(), transformedTriangle)) continue;
