@@ -1,5 +1,5 @@
 # 3D Engine
-Experimental build of a 3d engine from the ground up.<br/><br/>
+An experimental - significantly underperforming - personal build of a 3D engine meant to solidify Computer Graphics theory understanding and implement classical algorithms such as Z-Buffer, Constant Shading, and Backface Culling.<br/><br/>
 
 <img src = "docs/rotatingCube.gif" width="600" /><br/>
 Rendering a rotating cube with constant shading and Z-Buffer.<br/><br/>
